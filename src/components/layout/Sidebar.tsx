@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 function Sidebar() {
   return (
@@ -23,13 +24,53 @@ function Sidebar() {
           <div className="menu-inner-shadow"></div>
 
           <ul className="menu-inner py-1">
-           
-            <li className="menu-item active">
-              <a href="index.html" className="menu-link">
-                <i className="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
-              </a>
-            </li>
+            <NavLink to="/" className={({isActive})=>isActive ? "menu-item active" : "menu-item"}>
+                <li className="menu-link">
+                    <i className="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Dashboard</div>
+                </li>
+              </NavLink>
+              <NavLink to="/users" className={({isActive})=>isActive ? "menu-item active" : "menu-item"}>
+                <li className="menu-link">
+                    <i className='menu-icon bx  bx-user'  ></i>
+                    <div data-i18n="Analytics">Users</div>
+                </li>
+              </NavLink>
+            
+              <NavLink to="/sales" className={({isActive})=>isActive ? "menu-item active" : "menu-item"}>
+                <li className="menu-link">
+                    <i className='menu-icon bx  bx-shopping-bag'  ></i>
+                    <div data-i18n="Analytics">Sales</div>
+                </li>
+              </NavLink>
+            
+              <NavLink to="/pos" className={({isActive})=>isActive ? "menu-item active" : "menu-item"}>
+                <li className="menu-link">
+                    <i className='menu-icon bx  bx-credit-card-alt'  ></i>
+                    <div data-i18n="Analytics">POS</div>
+                </li>
+              </NavLink>
+
+              <NavLink to="/products" className={({isActive})=>isActive ? "menu-item active" : "menu-item"}>
+                <li className="menu-link">
+                    <i className='menu-icon bx  bx-sitemap'  ></i>
+                    <div data-i18n="Analytics">Products</div>
+                </li>
+              </NavLink>
+
+              <NavLink to="/roles" className={({isActive})=>isActive ? "menu-item active" : "menu-item"}>
+                <li className="menu-link">
+                    <i className='menu-icon bx  bx-user-circle'  ></i>
+                    <div data-i18n="Analytics">Roles</div>
+                </li>
+              </NavLink>
+              <NavLink to="/posts" className={({isActive})=>isActive ? "menu-item active" : "menu-item"}>
+                <li className="menu-link">
+                    <i className='menu-icon bx  bx-user-circle'  ></i>
+                    <div data-i18n="Analytics">Posts</div>
+                </li>
+              </NavLink>
+            
 
            
             <li className="menu-item">

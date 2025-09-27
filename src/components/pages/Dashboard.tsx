@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Dashboard() {
+  document.title = "Dashboard";
   return (
     <>
         <div className="container-xxl flex-grow-1 container-p-y">
