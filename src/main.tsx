@@ -7,6 +7,8 @@ import Dashboard from './components/pages/Dashboard.tsx'
 import Products from './components/pages/Products.tsx'
 import ManagePosts from './components/pages/posts/ManagePosts.tsx'
 import CreatePost from './components/pages/posts/CreatePost.tsx'
+import DetailsPost from './components/pages/posts/DetailsPost.tsx'
+import EditPost from './components/pages/posts/EditPost .tsx'
 
 const router = createBrowserRouter([
   {path: '/',element: <Layout />,
@@ -19,6 +21,8 @@ const router = createBrowserRouter([
       {path: '/sales',element: <h1>Sales</h1>},
       {path: '/posts',element: <ManagePosts />},
       {path: '/post/create',element:<CreatePost /> },
+      {path: '/post/details/:id',element:<DetailsPost /> },
+      {path: '/post/edit/:id',element:<EditPost/> },
     ],
   },
   {path: '/pos',element: <h1>POS</h1>},

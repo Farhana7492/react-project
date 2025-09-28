@@ -1,5 +1,7 @@
 import {useEffect,useState } from "react"
-import { Link } from "react-router-dom";
+import axios from "axios";
+
+import { data, Link } from "react-router-dom";
 interface Post{
     userId : number;
     id:number;
@@ -16,39 +18,25 @@ interface Post{
 function CreatePost() {
     const [title,setTitle] = useState<string>('');
     const [body,setBody] = useState<string>('');
+    document.title = "Create Post";
 
 
-    useEffect(() => {
-        document.title = "Create Post";
-        // getData();
-      }, []);
-      
-    //   async function loadData(){
-    //     //fetch data from api
-    //     try {
-    //         const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-    //         const data = await res.json();
-    //         console.log(data);
-    //         setPosts(data);
-    //   } catch (err) {
-    //       console.error(err)
-    //   }
-    //   }
+      function postData(e:React.FormEvent){
+        e.preventDefault();
 
-    //   axios API
-
-    // --------------------------------------------------
-
-      function postData(){
-        alert ('submitted successfully');
-        // axios.get("https://jsonplaceholder.typicode.com/posts")
-        // .then((res)=>{
-        //     // console.log(res.data)
-        //     setPosts(res.data);
-        // })
-        // .catch((err)=>{
-        //     console.error(err);
-        // });
+        // console.log("Title:"+title)
+        // console.log("Body:"+body)
+        const data = {title,body}
+        axios.post("https://jsonplaceholder.typicode.com/posts",data)
+        .then((res)=>{
+          console.log(res.data)
+          setTitle("");
+          setBody("");
+          alert ('Data submitted successfully');
+        })
+        .catch((err)=>{
+            console.error(err);
+        });
     }
 
   return (
@@ -62,11 +50,11 @@ function CreatePost() {
                         <form onSubmit={postData}>
                             <div className="mb-3">
                                 <label htmlFor="form-label">Title</label>
-                                <input type="text" name="title" className="form-control" />
+                                <input type="text" name="title" className="form-control" value={title} onChange={(e)=>setTitle(e.target.value)}/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="form-label">Body</label>
-                                <textarea name="body" className="form-control" rows={4}></textarea>
+                                <textarea name="body" className="form-control" rows={4} value={body} onChange={(e)=>setBody(e.target.value)}></textarea>
                             </div>
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </form>

@@ -67,23 +67,7 @@ function ManagePosts() {
                                 <th>Body</th>
                                 <th>Actions</th>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>Test</td>
-                                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi distinctio veniam perferendis vel voluptate at deserunt id, explicabo quae reiciendis totam, ratione necessitatibus inventore maxime nisi quod vitae assumenda ipsa.</td>
-                                    <td>
-                                        <div className="d-flex">
-                                            <button type="button" className="btn btn-outline-primary btn-sm me-2">
-                                                <span className="tf-icons bx bx-edit"></span>
-                                            </button>
-                                            <button className="btn btn-outline-danger btn-sm">
-                                                <span className="tf-icons bx bx-trash"></span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tbody>                                
                                 {
                                    posts.map((item) => 
                                     <tr key={item.id}>
@@ -93,9 +77,12 @@ function ManagePosts() {
                                         <td>{item.body}</td>
                                         <td>
                                             <div className="d-flex">
-                                                <button type="button" className="btn btn-outline-primary btn-sm me-2">
+                                                <Link to={`/post/details/${item.id}`} type="button" className="btn btn-outline-primary btn-sm me-2">
+                                                    <span className="tf-icons bx bx-search"></span>
+                                                </Link>
+                                                <Link to={`/post/edit/${item.id}`} type="button" className="btn btn-outline-primary btn-sm me-2">
                                                     <span className="tf-icons bx bx-edit"></span>
-                                                </button>
+                                                </Link>
                                                 <button className="btn btn-outline-danger btn-sm">
                                                     <span className="tf-icons bx bx-trash"></span>
                                                 </button>
