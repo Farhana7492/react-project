@@ -11,7 +11,7 @@ function Sidebar() {
               <span className="app-brand-logo demo">
                 
               </span>
-              <span className="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span className="app-brand-text demo menu-text fw-bolder ms-2">Farhana</span>
             </a>
             <label htmlFor="sidebarMenu" className='menu-link fs-1 text-danger ms-auto d-block d-xl-none'>
               <i className="bx bx-x bx-sm align-middle"></i>

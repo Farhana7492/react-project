@@ -51,7 +51,16 @@ function ManagePosts() {
             console.error(err);
         });
     }
-
+    const handleDelete = (id:number)=>{
+        // console.log(id+"  confirm delete");
+        axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then((res)=>{
+            console.log(res);
+        })
+        .catch((err)=>{
+            console.error(err);
+        })
+    }
   return (
     <>
         <div className="container-xxl flex-grow-1 container-p-y">
@@ -83,7 +92,7 @@ function ManagePosts() {
                                                 <Link to={`/post/edit/${item.id}`} type="button" className="btn btn-outline-primary btn-sm me-2">
                                                     <span className="tf-icons bx bx-edit"></span>
                                                 </Link>
-                                                <button className="btn btn-outline-danger btn-sm">
+                                                <button type="button" onClick={()=>{confirm("Are you sure to delete?") && handleDelete(item.id)}} className="btn btn-outline-danger btn-sm">
                                                     <span className="tf-icons bx bx-trash"></span>
                                                 </button>
                                             </div>

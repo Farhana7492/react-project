@@ -9,6 +9,10 @@ import ManagePosts from './components/pages/posts/ManagePosts.tsx'
 import CreatePost from './components/pages/posts/CreatePost.tsx'
 import DetailsPost from './components/pages/posts/DetailsPost.tsx'
 import EditPost from './components/pages/posts/EditPost .tsx'
+import ManageRoles from './components/pages/roles/ManageRoles.tsx'
+import CreateRoles from './components/pages/roles/CreateRoles.tsx'
+import ManageUsers from './components/pages/users/ManageUsers.tsx'
+import CreateUsers from './components/pages/users/CreateUsers.tsx'
 
 const router = createBrowserRouter([
   {path: '/',element: <Layout />,
@@ -16,13 +20,15 @@ const router = createBrowserRouter([
       {index: true,element: <Dashboard />},
       {path: '/dashboard',element: <Dashboard />},
       {path: '/products',element: <Products />},
-      {path: '/roles',element: <h1>Roles</h1>},
-      {path: '/users',element: <h1>Users</h1>},
+      {path: '/users',element: <ManageUsers/>},
+      {path: '/create-user',element: <CreateUsers/>},
       {path: '/sales',element: <h1>Sales</h1>},
       {path: '/posts',element: <ManagePosts />},
       {path: '/post/create',element:<CreatePost /> },
       {path: '/post/details/:id',element:<DetailsPost /> },
       {path: '/post/edit/:id',element:<EditPost/> },
+      {path: '/roles',element:<ManageRoles/> },
+      {path: '/create-role',element:<CreateRoles/> },
     ],
   },
   {path: '/pos',element: <h1>POS</h1>},
