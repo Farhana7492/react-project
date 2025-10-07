@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api  from "../../../config";
@@ -24,7 +23,7 @@ function ManageRoles() {
 
         api.get ("http://localhost/php_react-api/api/roles")
         .then((res)=>{
-            console.log(res.data);
+            // console.log(res.data);
             setRoles(res.data);
         })
         .catch((err)=>{
@@ -61,7 +60,7 @@ function ManageRoles() {
                                                 <Link to={`/post/details/${item.id}`} type="button" className="btn btn-outline-primary btn-sm me-2">
                                                     <span className="tf-icons bx bx-search"></span>
                                                 </Link>
-                                                <Link to={`/post/edit/${item.id}`} type="button" className="btn btn-outline-primary btn-sm me-2">
+                                                <Link to={`/edit-role/${item.id}`} type="button" className="btn btn-outline-primary btn-sm me-2">
                                                     <span className="tf-icons bx bx-edit"></span>
                                                 </Link>
                                                 <button type="button" className="btn btn-outline-danger btn-sm">

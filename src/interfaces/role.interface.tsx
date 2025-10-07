@@ -3,3 +3,8 @@ export interface Role {
     name?:string,
     
 }
+const roleDefault:Role = {
+    id:0,
+    name:""
+};
+export default roleDefault

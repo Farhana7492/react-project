@@ -1,0 +1,58 @@
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom"
+import roleDefault from "../../../interfaces/role.interface";
+import api from "../../../config";
+
+function EditRole() {
+    const params = useParams();
+    const [role,setRole] = useState(roleDefault);
+    useEffect(() => {
+        getRole();
+    },[]);
+    const getRole = () => {
+        api.get(`role?id=${params.id}`)
+        .then((res) => {
+            console.log(res.data);
+            setRole(res.data);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    }
+    const handleSubmit = (e:React.FormEvent) => {
+        e.preventDefault();
+        console.log(role);
+        api.put(`edit-role`,role)
+        .then((res) => {
+            console.log(res);
+            alert("Role Updated Successfully");
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    }
+  return (
+    <>
+        <div className="container-xxl flex-grow-1 container-p-y">
+            <h4 className="fw-bold py-3 mb-4"><Link to="/roles" className="text-muted fw-light">Role/</Link> Create Role</h4>
+            <Link to = "/post/create">Add New</Link>
+            <div className="card mt-3">
+                <h5 className="card-header">Edit Role</h5>
+                <div className="card-body">
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <label htmlFor="form-label">Name</label>
+                            <input type="text" name="name" className="form-control" value={role.name} onChange={(e) => setRole({...role,name:e.target.value})}/>
+                        </div>
+                            
+                        <button type="submit" className="btn btn-primary">Update</button>
+                    </form>
+
+                </div>
+            </div>
+        </div> 
+    </>
+  )
+}
+
+export default EditRole
